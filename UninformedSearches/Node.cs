@@ -8,7 +8,6 @@ namespace UninformedSearches {
     class Node<T> {
         public T Value { get; }
         public List<Arc<T>> Arcs { get; }
-        public Node<T> Parent { get; }
 
         public Node(T value) {
             this.Value = value;

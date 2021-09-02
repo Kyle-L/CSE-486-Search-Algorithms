@@ -8,38 +8,48 @@ namespace UninformedSearches {
     class BreadthFirstSearch<T> : Search<T> {
 
         public override List<Node<T>> PeformSearch(Node<T> start, Node<T> destination) {
-            Search(start, destination);
-            throw new NotImplementedException();
+            return GetPath(Search(start, destination), destination);
         }
 
-        private Node<T> Search (Node<T> start, Node<T> destination) {
+        private Dictionary<Node<T>, Node<T>> Search (Node<T> start, Node<T> destination) {
             Dictionary<Node<T>, Node<T>> reached = new();
             Queue<Node<T>> frontier = new();
 
-            frontier.Enqueue(start);
 
             if (start.Equals(destination)) {
-                return start;
+                reached.Add(start, null);
             }
+
+            frontier.Enqueue(start);
 
             while (frontier.Count > 0) {
                 Node<T> node = frontier.Dequeue();
-                Console.WriteLine(node.Value);
                 foreach (Arc<T> arc in node.Arcs) {
                     Node<T> s = arc.Destination;
-                    reached.Add(s, node);
 
                     if (s.Equals(destination)) {
-                        return s;
-                    }
-                    else if (!reached.ContainsKey(s)) {
+                        reached.Add(s, node);
+                        return reached;
+                    } else if (!reached.ContainsKey(s)) {
                         frontier.Enqueue(s);
+                        reached.Add(s, node);
                     }
                 }
             }
-            return null;
+            return reached;
         }
 
-        private 
+        private List<Node<T>> GetPath (Dictionary<Node<T>, Node<T>> reached, Node<T> destination) {
+            List<Node<T>> path = new();
+
+            path.Add(destination);
+
+            Node<T> start = destination;
+            while (reached.ContainsKey(start)) {
+                path.Insert(0, reached[start]);
+                start = reached[start];
+            }
+            return path;
+        }
     }
 }
