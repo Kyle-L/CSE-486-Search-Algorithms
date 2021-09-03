@@ -7,10 +7,12 @@ using System.Threading.Tasks;
 namespace UninformedSearches {
     class Node<T> {
         public T Value { get; }
+        public int Weight { get; set; }
         public List<Arc<T>> Arcs { get; }
 
         public Node(T value) {
             this.Value = value;
+            this.Weight = int.MaxValue;
             this.Arcs = new List<Arc<T>>();
         }
 

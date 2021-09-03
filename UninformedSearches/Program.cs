@@ -11,22 +11,24 @@ namespace UninformedSearches {
             Node<char> e = new('5');
             Node<char> f = new('6');
 
-            a.AddArc(b);
-            a.AddArc(c);
+            a.AddArc(b, 2);
+            a.AddArc(c, 1);
 
-            b.AddArc(e);
-            b.AddArc(d);
+            b.AddArc(d, 1);
+            b.AddArc(e, 3);
 
-            c.AddArc(e);
+            c.AddArc(e, 3);
 
-            d.AddArc(e);
-            d.AddArc(f);
+            d.AddArc(e, 1);
+            d.AddArc(f, 2);
 
-            e.AddArc(f);
+            e.AddArc(f, 4);
 
-            BreadthFirstSearch<char> search = new();
-            List<Node<char>> path = search.PeformSearch(a, f);
-            Console.WriteLine(path);
+            List<Node<char>> path1 = BreadthFirstSearch<char>.GetPath(a, f);
+            Console.WriteLine(path1);
+
+            List<Node<char>> path2 = UniformCostSearch<char>.GetPath(a, f);
+            Console.WriteLine(path2);
         }
     }
 }
