@@ -20,7 +20,7 @@ In other words, uninformed does **not** know which non-goals states are better.
 ### 1.1. Breadth-First Search (BFS)
 | Time Complexity  | Space Complexity | Complete        | Optimal                         |
 |------------------|------------------|-----------------|---------------------------------|
-| $O$($b$<sup>$d$</sup>) | $O$($b$<sup>$d$</sup>) | Yes (if finite) | Yes (if all edges are the same) 
+| O(b<sup>d</sup>) | O(b<sup>d</sup>) | Yes (if finite) | Yes (if all edges are the same) 
 
 Breadth-first search is a search in which nodes are expanded via the shallowest node first:
 - Examine states *one* step away from the initial state.
@@ -32,18 +32,18 @@ Consequently, this does not guarantee the optimal path. However, this does guara
 ### 1.2. Uniform-Cost Search (UCS)
 | Time Complexity  | Space Complexity | Complete        | Optimal                         |
 |------------------|------------------|-----------------|---------------------------------|
-| $O$($b$<sup>$d$</sup>) | $O$($b$<sup>$d$</sup>) | Yes (if finite) | Yes 
+| O(b<sup>d</sup>) | O(b<sup>d</sup>) | Yes (if finite) | Yes 
 
 When all step costs are equal, BFS is optimal because it always expands the shallowest unexpanded node. This is not true when step cost are not equal. By a simple extension, there is an algorithm that is optimal with any step-cost function.
 
-Compared to BFS, Instead of expanding the shallowest node, UCS expands the node n with the lowest path cost $g(n)$.
-Let $g(n)$ = cost of path from start node s to current node n
-Thus, nodes are sorted by by increasing value of $g$ using a priority queue to order nodes on the frontier list.
+Compared to BFS, Instead of expanding the shallowest node, UCS expands the node n with the lowest path cost g(n).
+Let g(n) = cost of path from start node s to current node n
+Thus, nodes are sorted by by increasing value of g using a priority queue to order nodes on the frontier list.
 
 ### 1.3. Depth-Limited Search (DLS)
 | Time Complexity  | Space Complexity | Complete        | Optimal                         |
 |------------------|------------------|-----------------|---------------------------------|
-| $O$($b$<sup>$m$</sup>) | $O$($bm$) | No (loops or infinite non-goal path) | No
+| O(b<sup>m</sup>) | O(bm) | No (loops or infinite non-goal path) | No
 
 The depth-limited search expands via the *deepest* node first. Specifically:
 - Select a direction go to the end.
@@ -51,12 +51,12 @@ The depth-limited search expands via the *deepest* node first. Specifically:
 - Slightly change the end some more...
 - Once a node has been expanded, it can be removed from memory as soon as all its descendants have been explored.
 
-However, however only performs up to a certain level $l$ where $l$ is less than or equal to the depth of the graph.
+However, however only performs up to a certain level l where l is less than or equal to the depth of the graph.
 
 ### 1.4. Iterative-Deepening Search (IDS)
 | Time Complexity  | Space Complexity | Complete        | Optimal                         |
 |------------------|------------------|-----------------|---------------------------------|
-| $O$($b$<sup>$d$</sup>) | $O$($bd$) | Yes (if finite) | Yes 
+| O(b<sup>d</sup>) | O(bd) | Yes (if finite) | Yes 
 
 As an extension of DFS, IDS becomes optimal by doing a DFS search level by level:
 
