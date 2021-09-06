@@ -1,18 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace UninformedSearches {
+﻿namespace UninformedSearches {
     class Node<T> {
         public T Value { get; }
-        public int Weight { get; set; }
+        public int D { get; set; }
         public List<Arc<T>> Arcs { get; }
 
         public Node(T value) {
             this.Value = value;
-            this.Weight = int.MaxValue;
+            this.D = int.MaxValue;
             this.Arcs = new List<Arc<T>>();
         }
 

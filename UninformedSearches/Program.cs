@@ -1,9 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Diagnostics;
 
 namespace UninformedSearches {
     class Program {
         static void Main(string[] args) {
+            UninformedSearch<char> bfs = new BreadthFirstSearch<char>();
+            UninformedSearch<char> ucs = new UniformCostSearch<char>();
+            UninformedSearch<char> dls = new DepthLimitedSearch<char>(4);
+            UninformedSearch<char> dis = new IterativeDeepeningSearch<char>();
+
             Node<char> a = new('1');
             Node<char> b = new('2');
             Node<char> c = new('3');
@@ -24,11 +28,42 @@ namespace UninformedSearches {
 
             e.AddArc(f, 4);
 
-            List<Node<char>> path1 = BreadthFirstSearch<char>.GetPath(a, f);
-            Console.WriteLine(path1);
+            Stopwatch stopWatch = new Stopwatch();
 
-            List<Node<char>> path2 = UniformCostSearch<char>.GetPath(a, f);
-            Console.WriteLine(path2);
+            stopWatch.Start();
+            for (int i = 0; i < 10000; i++) {
+                List<Node<char>> path = bfs.GetPath(a, f);
+            }
+
+            stopWatch.Stop();
+            Console.WriteLine(stopWatch.Elapsed);
+
+            stopWatch.Restart();
+            for (int i = 0; i < 10000; i++) {
+                List<Node<char>> path = ucs.GetPath(a, f);
+            }
+
+            stopWatch.Stop();
+            Console.WriteLine(stopWatch.Elapsed);
+
+
+            stopWatch.Restart();
+            for (int i = 0; i < 10000; i++) {
+                List<Node<char>> path = dls.GetPath(a, f);
+            }
+
+            stopWatch.Stop();
+            Console.WriteLine(stopWatch.Elapsed);
+
+
+            stopWatch.Restart();
+            for (int i = 0; i < 10000; i++) {
+                List<Node<char>> path = dis.GetPath(a, f);
+            }
+
+            stopWatch.Stop();
+            Console.WriteLine(stopWatch.Elapsed);
+            Console.WriteLine();
         }
     }
 }

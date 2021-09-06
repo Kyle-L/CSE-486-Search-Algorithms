@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace UninformedSearches {
+﻿namespace UninformedSearches {
     class Arc<T> {
         public int Weight { get; }
         public Node<T> Origin { get; }
