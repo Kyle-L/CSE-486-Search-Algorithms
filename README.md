@@ -9,6 +9,7 @@ In other words, uninformed does **not** know which non-goals states are better.
 - [ ] [.NET 6.0](https://dotnet.microsoft.com/download/dotnet/6.0)
 - [ ] [Visual Studio (>= 2019)](https://visualstudio.microsoft.com/vs/)
 
+## Table of Contents
 - [1. The Searches](#1-the-searches)
   - [1.1. Breadth-First Search (BFS)](#11-breadth-first-search-bfs)
   - [1.2. Uniform-Cost Search (UCS)](#12-uniform-cost-search-ucs)
