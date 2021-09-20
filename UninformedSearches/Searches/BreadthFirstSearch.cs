@@ -1,5 +1,7 @@
-﻿namespace UninformedSearches {
-    class BreadthFirstSearch<T> : UninformedSearch<T> {
+﻿using System.Collections.Generic;
+
+namespace Searches {
+    class BreadthFirstSearch<T> : Search<T> {
 
 
         protected override Dictionary<Node<T>, Node<T>> BuildTraversalMap(Node<T> start, Node<T> destination) {

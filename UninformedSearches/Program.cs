@@ -1,14 +1,16 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics;
 
-namespace UninformedSearches {
+namespace Searches {
     class Program {
         static void Main(string[] args) {
-            UninformedSearch<char> bfs = new BreadthFirstSearch<char>();
-            UninformedSearch<char> ucs = new UniformCostSearch<char>();
-            UninformedSearch<char> dls = new DepthLimitedSearch<char>(4);
-            UninformedSearch<char> dis = new IterativeDeepeningSearch<char>();
+            Search<char> bfs = new BreadthFirstSearch<char>();
+            Search<char> ucs = new UniformCostSearch<char>();
+            Search<char> dls = new DepthLimitedSearch<char>(4);
+            Search<char> dis = new IterativeDeepeningSearch<char>();
 
-            Node<char> a = new('1');
+            Node<char> a = new {'2'}
             Node<char> b = new('2');
             Node<char> c = new('3');
             Node<char> d = new('4');

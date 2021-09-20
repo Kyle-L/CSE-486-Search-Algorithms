@@ -1,5 +1,7 @@
-﻿namespace UninformedSearches {
-    class DepthLimitedSearch<T> : UninformedSearch<T> {
+﻿using System.Collections.Generic;
+
+namespace Searches {
+    class DepthLimitedSearch<T> : Search<T> {
 
         protected int levelLimit;
 
@@ -12,20 +14,20 @@
             Dictionary<Node<T>, Node<T>> reached = new();
             Stack<Node<T>> frontier = new();
 
-            start.D = 0;
+            start.PathCost = 0;
             frontier.Push(start);
 
             while (frontier.Count > 0) {
                 Node<T> node = frontier.Pop();
                 if (node.Equals(destination)) {
                     return reached;
-                } else if (node.D >= levelLimit) {
+                } else if (node.PathCost >= levelLimit) {
                     continue;
                 } else {
                     foreach (Arc<T> arc in node.Arcs) {
                         Node<T> child = arc.Destination;
                         if (!reached.ContainsKey(child)) {
-                            child.D = node.D + 1;
+                            child.PathCost = node.PathCost + 1;
                             frontier.Push(child);
                             reached.Add(child, node);
                         }

@@ -1,12 +1,16 @@
-﻿namespace UninformedSearches {
+﻿using System.Collections.Generic;
+
+namespace Searches {
     class Node<T> {
         public T Value { get; }
-        public int D { get; set; }
+        public int PathCost { get; set; }
+        public int Heuristic { get; set; }
         public List<Arc<T>> Arcs { get; }
 
-        public Node(T value) {
+        public Node(T value, int heuristic = 0) {
             this.Value = value;
-            this.D = int.MaxValue;
+            this.PathCost = int.MaxValue;
+            this.Heuristic = heuristic;
             this.Arcs = new List<Arc<T>>();
         }
 

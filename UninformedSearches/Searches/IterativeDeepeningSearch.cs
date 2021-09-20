@@ -1,4 +1,6 @@
-﻿namespace UninformedSearches {
+﻿using System.Collections.Generic;
+
+namespace Searches {
     class IterativeDeepeningSearch<T> : DepthLimitedSearch<T> {
 
         public IterativeDeepeningSearch() : base(0) { }

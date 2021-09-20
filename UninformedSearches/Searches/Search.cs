@@ -1,5 +1,7 @@
-﻿namespace UninformedSearches {
-    abstract class UninformedSearch<T> {
+﻿using System.Collections.Generic;
+
+namespace Searches {
+    abstract class Search<T> {
 
         /// <summary>
         /// Retrieves the best path from the start to the destination according to the specific uninformed search.

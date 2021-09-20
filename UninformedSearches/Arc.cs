@@ -1,4 +1,4 @@
-﻿namespace UninformedSearches {
+﻿namespace Searches {
     class Arc<T> {
         public int Weight { get; }
         public Node<T> Origin { get; }
