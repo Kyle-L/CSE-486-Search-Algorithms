@@ -1,9 +1,4 @@
 # Uninformed Searches
-Uninformed searches in which we only know:
-- The goal test
-- The successors() function
-
-In other words, uninformed does **not** know which non-goals states are better.
 
 ## Requirements
 - [ ] [.NET 6.0](https://dotnet.microsoft.com/download/dotnet/6.0)
