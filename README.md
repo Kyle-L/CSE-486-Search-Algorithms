@@ -1,4 +1,4 @@
-# Uninformed Searches
+# Searches Algorithms
 
 ## Requirements
 - [ ] [.NET 6.0](https://dotnet.microsoft.com/download/dotnet/6.0)
@@ -10,6 +10,7 @@
   - [1.2. Uniform-Cost Search (UCS)](#12-uniform-cost-search-ucs)
   - [1.3. Depth-Limited Search (DLS)](#13-depth-limited-search-dls)
   - [1.4. Iterative-Deepening Search (IDS)](#14-iterative-deepening-search-ids)
+  - [1.5. A* Search (AS)](#15-a*-search)
 - [2. The Implementation](#2-the-implementation)
   - [2.1. Building a Graph](#21-building-a-graph)
   - [2.2. Searching a Graph](#22-searching-a-graph)
@@ -65,6 +66,13 @@ As an extension of DFS, IDS becomes optimal by doing a DFS search level by level
 - Repeat by increasing *depth bound* until a solution is found.
 
 Trades a little time for a huge reduction in space: lets you do a BFS search with a (more space efficient) depth-first search.
+
+### 1.5. A* Search
+| Time Complexity  | Space Complexity | Complete        | Optimal                         |
+|------------------|------------------|-----------------|---------------------------------|
+| O(b<sup>d</sup>) | O(bd) | Yes (if finite) | Yes 
+
+The A* algorithm is in many ways similar to the UCS mentioned above. However, there is a simple modification; the addition of a heuristic function. Rather than chosing the next nodes with the lowest arc weight, the next node is chosen based on the sum of the arc weight and an arbitrary heuristic function.
 
 ## 2. The Implementation
 The aforementioned searches have been implemented using C# and the .NET 6.0 framework.
