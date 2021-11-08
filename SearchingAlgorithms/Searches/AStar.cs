@@ -6,7 +6,7 @@ namespace Searches {
 
         public delegate int Heurisitic(Node<T> node);
 
-        public AStar(List<Node<T>> nodes, Heurisitic heuristicFunction = null) {
+        public AStar(List<Node<T>> nodes = null, Heurisitic heuristicFunction = null) {
             if (heuristicFunction is not null) {
                 foreach (Node<T> node in nodes) {
                     node.Heuristic = heuristicFunction(node);

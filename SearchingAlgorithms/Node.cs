@@ -17,5 +17,9 @@ namespace Searches {
         public void AddArc(Node<T> destination, int weight = 1) {
             this.Arcs.Add(new Arc<T>(weight, this, destination));
         }
+
+        public override string ToString() {
+            return Value.ToString();
+        }
     }
 }
