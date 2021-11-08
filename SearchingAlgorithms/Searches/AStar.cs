@@ -23,16 +23,13 @@ namespace Searches {
 
             while (frontier.Count > 0) {
                 Node<T> node = frontier.Dequeue();
+                if (node.Equals(destination)) {
+                    return traversalMap;
+                }
                 foreach (Arc<T> arc in node.Arcs) {
                     Node<T> s = arc.Destination;
 
-                    // Quit once we reach the destination.
-                    if (s.Equals(destination)) {
-                        traversalMap.Add(s, node);
-                        return traversalMap;
-
-                    // Expand the frontier for unvisited notes.
-                    } else if (!traversalMap.ContainsKey(s)) {
+                    if (!traversalMap.ContainsKey(s)) {
                         s.PathCost = node.PathCost + arc.Weight;
                         frontier.Enqueue(s, s.PathCost + node.Heuristic);
                         traversalMap.Add(s, node);
