@@ -1,20 +1,26 @@
-# Searches Algorithms
+![CSE 586 Search Algorithms](docs/header.png)
 
 ## Requirements
 - [ ] [.NET 6.0](https://dotnet.microsoft.com/download/dotnet/6.0)
 - [ ] [Visual Studio (>= 2019)](https://visualstudio.microsoft.com/vs/)
 
 ## Table of Contents
+- [Requirements](#requirements)
+- [Table of Contents](#table-of-contents)
+- [Overview](#overview)
 - [1. The Searches](#1-the-searches)
   - [1.1. Breadth-First Search (BFS)](#11-breadth-first-search-bfs)
   - [1.2. Uniform-Cost Search (UCS)](#12-uniform-cost-search-ucs)
   - [1.3. Depth-Limited Search (DLS)](#13-depth-limited-search-dls)
   - [1.4. Iterative-Deepening Search (IDS)](#14-iterative-deepening-search-ids)
-  - [1.5. A* Search (AS)](#15-a*-search)
+  - [1.5. A* Search](#15-a-search)
 - [2. The Implementation](#2-the-implementation)
   - [2.1. Building a Graph](#21-building-a-graph)
   - [2.2. Searching a Graph](#22-searching-a-graph)
 - [License](#license)
+
+## Overview
+As a simple assignment for my [Introduction to Artificial Intelligence course (CSE 586)](https://www.miamioh.edu/cec/academics/departments/cse/academics/course-descriptions/cse-486-586/index.html) at Miami University, we were tasked with implementing a number of simple search algorithms.
 
 ## 1. The Searches
 
